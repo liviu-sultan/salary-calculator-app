@@ -36,27 +36,27 @@
             <table class="result-table">
                 <tr>
                     <th>Gross Annual Salary</th>
-                    <td>{{ number_format($grossSalary, 2) }}</td>
+                    <td>{{ $currencySymbol }}{{ number_format($salaryDto->getGrossAnnualSalary(), 2) }}</td>
                 </tr>
                 <tr>
                     <th>Gross Monthly Salary</th>
-                    <td>{{ number_format($grossMonthlySalary, 2) }}</td>
+                    <td>{{ $currencySymbol }}{{ number_format($salaryDto->getGrossMonthlySalary(), 2) }}</td>
                 </tr>
                 <tr>
                     <th>Net Annual Salary</th>
-                    <td>{{ number_format($netAnnualSalary, 2) }}</td>
+                    <td>{{ $currencySymbol }}{{ number_format($salaryDto->getNetAnnualSalary(), 2) }}</td>
                 </tr>
                 <tr>
                     <th>Net Monthly Salary</th>
-                    <td>{{ number_format($netMonthlySalary, 2) }}</td>
+                    <td>{{ $currencySymbol }}{{ number_format($salaryDto->getNetMonthlySalary(), 2) }}</td>
                 </tr>
                 <tr>
                     <th>Annual Tax Paid</th>
-                    <td>{{ number_format($annualTaxPaid, 2) }}</td>
+                    <td>{{ $currencySymbol }}{{ number_format($salaryDto->getAnnualTaxPaid(), 2) }}</td>
                 </tr>
                 <tr>
                     <th>Monthly Tax Paid</th>
-                    <td>{{ number_format($monthlyTaxPaid, 2) }}</td>
+                    <td>{{ $currencySymbol }}{{ number_format($salaryDto->getMonthlyTaxPaid(), 2) }}</td>
                 </tr>
             </table>
         @endif
