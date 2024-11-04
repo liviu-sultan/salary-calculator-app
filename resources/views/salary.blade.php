@@ -33,33 +33,33 @@
             <button type="submit" class="btn btn-outline-success">Calculate</button>
         </form>
 
-        @if(isset($grossSalary))
-            <table class="result-table">
-                <tr>
-                    <th>Gross Annual Salary</th>
-                    <td>{{ $currencySymbol }}{{ number_format($salaryDto->getGrossAnnualSalary(), 2) }}</td>
-                </tr>
-                <tr>
-                    <th>Gross Monthly Salary</th>
-                    <td>{{ $currencySymbol }}{{ number_format($salaryDto->getGrossMonthlySalary(), 2) }}</td>
-                </tr>
-                <tr>
-                    <th>Net Annual Salary</th>
-                    <td>{{ $currencySymbol }}{{ number_format($salaryDto->getNetAnnualSalary(), 2) }}</td>
-                </tr>
-                <tr>
-                    <th>Net Monthly Salary</th>
-                    <td>{{ $currencySymbol }}{{ number_format($salaryDto->getNetMonthlySalary(), 2) }}</td>
-                </tr>
-                <tr>
-                    <th>Annual Tax Paid</th>
-                    <td>{{ $currencySymbol }}{{ number_format($salaryDto->getAnnualTaxPaid(), 2) }}</td>
-                </tr>
-                <tr>
-                    <th>Monthly Tax Paid</th>
-                    <td>{{ $currencySymbol }}{{ number_format($salaryDto->getMonthlyTaxPaid(), 2) }}</td>
-                </tr>
-            </table>
+        @if(isset($salary))
+        <table class="result-table">
+            <tr>
+                <th>Gross Annual Salary</th>
+                <td>{{ $salary->grossAnnualSalary }}</td>
+            </tr>
+            <tr>
+                <th>Gross Monthly Salary</th>
+                <td>{{ $salary->grossMonthlySalary }}</td>
+            </tr>
+            <tr>
+                <th>Net Annual Salary</th>
+                <td>{{ $salary->netAnnualSalary }}</td>
+            </tr>
+            <tr>
+                <th>Net Monthly Salary</th>
+                <td>{{ $salary->netMonthlySalary }}</td>
+            </tr>
+            <tr>
+                <th>Annual Tax Paid</th>
+                <td>{{ $salary->annualTaxPaid }}</td>
+            </tr>
+            <tr>
+                <th>Monthly Tax Paid</th>
+                <td>{{ $salary->monthlyTaxPaid }}</td>
+            </tr>
+        </table>
         @endif
     </div>
 </main>
