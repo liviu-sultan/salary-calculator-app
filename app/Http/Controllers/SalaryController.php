@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\TaxBandBuilderService;
+use App\Services\TaxBandService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class SalaryController extends Controller
 {
-    protected TaxBandBuilderService $taxBandBuilderService;
+    protected TaxBandService $taxBandService;
+    private const CURRENCY_SYMBOL = '£';
 
-    public function __construct(TaxBandBuilderService $taxBandBuilderService)
+    public function __construct(TaxBandService $taxBandService)
     {
-        $this->taxBandBuilderService = $taxBandBuilderService;
+        $this->taxBandService = $taxBandService;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function show(Request $request): View
     {
         if ($request->isMethod('GET')) {
@@ -22,12 +26,11 @@ class SalaryController extends Controller
         }
 
         $grossAnnualSalary = $request->input('gross_salary');
-        $salaryDto = $this->taxBandBuilderService->calculateNetSalaryOnBands($grossAnnualSalary);
-        $currencySymbol = '£';
+        $salaryDto = $this->taxBandService->calculateNetSalary($grossAnnualSalary);
 
         return view('salary', [
             'salaryDto' => $salaryDto,
-            'currencySymbol' => $currencySymbol,
+            'currencySymbol' => self::CURRENCY_SYMBOL,
             'grossSalary' =>  $salaryDto->getGrossAnnualSalary(),
         ]);
     }

@@ -19,6 +19,8 @@ services:
     volumes:
       - ../:/var/www/app
     working_dir: /var/www/app
+    depends_on:
+      - db
     networks:
       - default
 
@@ -39,3 +41,25 @@ services:
       - php
       - nginx
       - nodejs
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: salary_calc
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password1
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - default
+    ports:
+      - "3306:3306"
+
+networks:
+  default:
+    driver: bridge
+
+volumes:
+  db_data:

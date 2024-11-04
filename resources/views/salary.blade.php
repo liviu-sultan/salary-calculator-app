@@ -23,6 +23,7 @@
 <main>
     <div class="container">
         <h1>Gross to Net Salary Calculator</h1>
+        <br>
         <form method="POST" action="/salary">
             @csrf
             <div class="mb-3">
