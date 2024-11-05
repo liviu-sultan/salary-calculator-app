@@ -13,3 +13,7 @@ covering the upper part of the salary never has an upper limit. The uppermost ta
 To deploy the application you must have docker installed on your computer and "make". 
 Then go to the project root and run following command: "make deploy"
 In order to access the application in browser, you need to visit http://localhost:8081/salary
+
+
+## Unit Tests
+To start unit tests please run the following command:  php artisan test --filter=SalaryServiceTest
